@@ -90,12 +90,18 @@ def perform_modular_square_root(modulus):
         print("El número no tiene raíces cuadradas modulares.")
 
 
-def perform_modular_square_list(modulus):
+def perform_list_squares(modulus):
     squares = []
-    for i in range(1, modulus):
+    for i in range(modulus):
         square = (i * i) % modulus
-        squares.append(square)
-    print(f"Los cuadrados perfectos modulares son: {squares}")
+        if square not in squares:
+            squares.append(square)
+            print(f"{i}^2 = {square}")
+    if len(squares) == modulus:
+        print(f"Todos los números en Z{modulus} son cuadrados perfectos.")
+    else:
+        print(f"Hay {len(squares)} cuadrados perfectos en Z{modulus}.")
+
 
 
 def main():
@@ -115,7 +121,7 @@ def main():
         if option == 6:
             perform_modular_square_root(get_modulus())
         if option == 7:
-            perform_modular_square_list(get_modulus())
+            perform_list_squares(get_modulus())
         if option == 0:
             sys.exit()
 
