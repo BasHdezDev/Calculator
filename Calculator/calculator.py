@@ -1,5 +1,6 @@
 import sys
 import gmpy2
+from sympy import legendre_symbol
 
 
 def show_menu():
@@ -78,16 +79,18 @@ def perform_modular_inverse(modulus):
         print("No existe el inverso multiplicativo modular para el número ingresado.")
 
 
-def perform_modular_square_root(modulus):
-    number = get_number() % modulus
-    try:
-        roots = gmpy2.iroot(number, 2)
-        if roots[1]:
-            print(f"Las raíces cuadradas modulares son: {roots[0]} y {-roots[0] % modulus}")
-        else:
-            print("El número no tiene raíces cuadradas modulares.")
-    except ValueError:
-        print("El número no tiene raíces cuadradas modulares.")
+def perform_modular_sqrt():
+    num = get_number()
+    mod = get_modulus()
+
+    roots = []
+    for x in range(mod):
+        if (x**2) % mod == num:
+            roots.append(x)
+    if len(roots) > 0:
+        return print(f"Las raíces cuadradas encontradas son {len(roots)} y son {roots}")
+    else:
+        return print("No hay raíces cuadradas")
 
 
 def perform_list_squares(modulus):
@@ -119,7 +122,7 @@ def main():
         if option == 5:
             perform_modular_inverse(get_modulus())
         if option == 6:
-            perform_modular_square_root(get_modulus())
+            perform_modular_sqrt()
         if option == 7:
             perform_list_squares(get_modulus())
         if option == 0:
