@@ -1,6 +1,5 @@
 # Calculator
-First try of solving the first problem of math, creating a modular calculator 
+Esta es la solución de la calculadora modular
 
-Probably this firts try may be changed with the time because it might be not 100% correct
+Yo acostumbro a escribir el código en inglés con el fin de acostumbrarme más al idioma y estar mejor preparado en situaciones laborales,
 
-The full repository is on https://github.com/BasHdezDev/Calculator
