@@ -1,6 +1,5 @@
 import sys
 import gmpy2
-from sympy import legendre_symbol
 
 
 def show_menu():
