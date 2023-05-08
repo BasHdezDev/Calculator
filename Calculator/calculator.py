@@ -3,7 +3,7 @@ import gmpy2
 
 
 #El código lo tengo en inglés porque acostumbro a usar las buenas practicas de programación con el fin de adaptarme mejor en una situación laboral
-#Lo único que no está en inglés son todas las partes de la interfaz de usuario
+#Lo único que no está en inglés son todas las partes de la interfaz de usuario y los comentarios
 
 
 #Este es el menú con todas las opciones de la calculadora modular
