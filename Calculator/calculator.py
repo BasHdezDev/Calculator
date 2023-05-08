@@ -2,6 +2,12 @@ import sys
 import gmpy2
 
 
+#El código lo tengo en inglés porque acostumbro a usar las buenas practicas de programación con el fin de adaptarme mejor en una situación laboral
+#Lo único que no está en inglés son todas las partes de la interfaz de usuario
+
+
+#Este es el menú con todas las opciones de la calculadora modular
+
 def show_menu():
     print("----------------------")
     print("Calculadora Modular")
@@ -16,6 +22,8 @@ def show_menu():
     print("0. Salir")
 
 
+#Esta es una función para pedir el modulo en el que se va a trabajar, incluyendo el manejo de excepciones visto en POO
+
 def get_modulus():
     while True:
         try:
@@ -28,6 +36,8 @@ def get_modulus():
             print("El valor ingresado no es un número entero válido.")
 
 
+#Esta función es para obtener el número o los números con los que se va a operar
+
 def get_number():
     while True:
         try:
@@ -37,12 +47,15 @@ def get_number():
             print("El valor ingresado no es un número válido.")
 
 
+#Función que permite sumar modularmente. Punto 1
+
 def perform_addition(modulus):
     a = get_number() % modulus
     b = get_number() % modulus
     result = (a + b) % modulus
     print(f"El resultado de la suma es: {result}\n\n")
 
+#Función que permite multiplicar modularmente. Punto 2
 
 def perform_multiplication(modulus):
     a = get_number() % modulus
@@ -50,6 +63,7 @@ def perform_multiplication(modulus):
     result = (a * b) % modulus
     print(f"El resultado de la multiplicación es: {result}")
 
+#Función que permite dividir modularmente. Punto 3
 
 def perform_division(modulus):
     a = get_number() % modulus
@@ -60,7 +74,7 @@ def perform_division(modulus):
     except ZeroDivisionError:
         print("No se puede dividir por cero.")
 
-
+#Función que permite hacer la potencia modular. Punto 4
 
 def perform_modular_exponentiation(modulus):
     base = get_number() % modulus
@@ -68,6 +82,7 @@ def perform_modular_exponentiation(modulus):
     result = gmpy2.powmod(base, exponent, modulus)
     print(f"El resultado de la potencia modular es: {result}")
 
+#Función que permite encontrar el inverso modular. Punto 5
 
 def perform_modular_inverse(modulus):
     number = get_number() % modulus
@@ -77,6 +92,7 @@ def perform_modular_inverse(modulus):
     except ZeroDivisionError:
         print("No existe el inverso multiplicativo modular para el número ingresado.")
 
+#Función que permite hayar la raíz cuadrada modular. Punto 6
 
 def perform_modular_sqrt():
     num = get_number()
@@ -91,6 +107,7 @@ def perform_modular_sqrt():
     else:
         return print("No hay raíces cuadradas")
 
+#Función que permite encontrar los cuadrados perfectos en Zn. Punto 7
 
 def perform_list_squares(modulus):
     squares = []
@@ -105,6 +122,7 @@ def perform_list_squares(modulus):
         print(f"Hay {len(squares)} cuadrados perfectos en Z{modulus}.")
 
 
+#Condicionales indicando la operación a hacer según el número elegido
 
 def main():
     while True:
@@ -126,5 +144,8 @@ def main():
             perform_list_squares(get_modulus())
         if option == 0:
             sys.exit()
+
+
+#Llamar a la función principal para poder correr la calculadora
 
 main()
