@@ -53,12 +53,13 @@ def perform_multiplication(modulus):
 
 def perform_division(modulus):
     a = get_number() % modulus
-    b = get_number() % modulus
+    b = get_number()
     try:
         result = gmpy2.divm(a, b, modulus)
         print(f"El resultado de la división es: {result}")
     except ZeroDivisionError:
         print("No se puede dividir por cero.")
+
 
 
 def perform_modular_exponentiation(modulus):
